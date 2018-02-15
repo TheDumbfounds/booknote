@@ -2,5 +2,5 @@
   "accounts/tests/test_accounts_views.py::TestLoginView::()::test_login": true,
   "accounts/tests/test_accounts_views.py::TestLoginView::()::test_logout": true,
   "accounts/tests/test_views.py": true,
-  "books/tests/test_books_views.py::TestBookDetailView::()::test_access": true
+  "books/tests/test_books_views.py::TestBookDeleteView::()::test_delete": true
 }
