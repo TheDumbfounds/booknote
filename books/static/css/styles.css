@@ -1,22 +1,36 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 .book {
+  padding: 0!important;
   background-color: #383531;
-  padding: 10px 0px 10px 0px;
   margin-bottom: 10px;
   border-radius: 5px;
   box-shadow: 0px 0px 5px grey;
 }
-.book .name {
+.book_detail_link {
+  width: 95%;
+  float: left;
   color: white;
   font-family: 'Montserrat';
   font-size: 120%;
+  padding: 10px 0px 10px 30px;
 }
-.book .cross {
-  font-size: 150%;
+.book_detail_link:hover {
+  color: white;
+  text-decoration: none;
+  background-color: #5e5853;
+}
+.book__cross {
+  text-align: center;
+  width: 5%;
+  padding: 9px;
+  float: right;
   color: red;
+  font-size: 30px!important;
+  overflow: auto;
 }
-.book:hover {
+.book__cross:hover {
+  color: red;
   text-decoration: none;
   background-color: #5e5853;
 }

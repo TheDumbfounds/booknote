@@ -1,7 +1,9 @@
-<a href="{{ book.details_url }}" class="book col-lg-12">
-  <span class="name">{{ book.name }}</span>
-  <span class="fa fa-trash-o cross float-right"></span>
-  {% if book.rating %}
-  <span class="rating">({{ book.rating }}/5)</span>
-  {% endif %}
-</a>
+<div class="book col-lg-12">
+  <a href="{% url 'books:detail' book.slug %}" class="book_detail_link">
+    <span class="name">{{ book.name }}</span>
+    {% if book.rating %}
+    <span class="rating">({{ book.rating }}/5)</span>
+    {% endif %}
+  </a>
+  <a href="{% url 'books:delete' book.slug %}" class="fa fa-trash-o book__cross"></a>
+</div>
