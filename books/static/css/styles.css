@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.book {
+  background-color: #383531;
+  padding: 10px 0px 10px 0px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px grey;
+}
+.book .name {
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 120%;
+}
+.book .cross {
+  font-size: 150%;
+  color: red;
+}
+.book:hover {
+  text-decoration: none;
+  background-color: #5e5853;
+}

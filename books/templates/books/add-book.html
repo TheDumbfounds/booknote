@@ -1,0 +1,13 @@
+{% extends 'books/base.html'  %}
+{% block content %}
+<div class="container">
+  <form method="POST" class="form-group">
+    {% csrf_token %}
+    {% for field in form %}
+      <label>{{ field.label }}</label>
+      <input class="form-control" name="{{ field.name }}" placeholder="{{ field.label }}" />
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>
+{% endblock %}
