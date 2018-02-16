@@ -23,7 +23,6 @@
 .book__cross {
   text-align: center;
   width: 5%;
-  padding: 9px;
   float: right;
   color: red;
   font-size: 30px!important;
@@ -33,4 +32,8 @@
   color: red;
   text-decoration: none;
   background-color: #5e5853;
+}
+.star {
+  font-size: 300%!important;
+  text-shadow: 0px 0px 3px lightgrey;
 }
