@@ -3,8 +3,9 @@ from mixer.backend.django import mixer
 from django.test import RequestFactory
 from django.contrib.auth.models import User, AnonymousUser
 from django.urls import reverse
-from books.views import BookListView, BookDetailView, BookDeleteView
+from books.views import BookListView, BookDetailView, BookDeleteView, BookCreateView
 from ..models import Book
+import json
 pytestmark = pytest.mark.django_db
 
 
@@ -30,6 +31,18 @@ class TestBookDetailView:
         resp = BookDetailView.as_view()(req, slug=book.slug)
         assert resp.status_code == 200, 'Should display detail view'
 
+
+class TestBookCreateView:
+    def test_add(self):
+        data = {
+            'name': 'the test book'
+        }
+        req = RequestFactory().post('/books/new', data=data)
+        req.user = mixer.blend(User)
+        resp = BookCreateView.as_view()(req)
+
+        assert Book.objects.filter(name='the test book').exists() == True
+        assert resp.status_code == 302
 
 
 class TestBookDeleteView:
