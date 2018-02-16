@@ -1,4 +1,35 @@
 {% extends 'books/base.html'  %}
+{% load static %}
 {% block content %}
-{{ book.name }}
+<div class="container">
+  <h2 class="black-text">{{ book.name }}</h2>
+  <div class="stars">
+    {% for i in 'x'|rjust:book.rating %}
+      <span class="star material-icons yellow-text">star</span>
+    {% endfor %}
+  </div>
+  <br />
+  <br />
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#custom_notes">Custom Notes</a></li>
+        <li class="tab col s3"><a href="#predefined_notes">Predefined Notes</a></li>
+      </ul>
+    </div>
+    <div id="custom_notes" class="col s12">
+      <br />
+      <a href="#addNoteModal" class="btn-floating modal-trigger right z-depth-2"><i class="material-icons">add</i></a>
+      {% for note in notes %}
+        {% include 'books/_note.html' %}
+      {% endfor %}
+      {% include 'books/_add_note_modal.html' %}
+    </div>
+    <div id="predefined_notes" class="col s12">
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block script %}
+<script src="{% static 'js/notes.js' %}"></script>
 {% endblock %}

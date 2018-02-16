@@ -1,9 +1,9 @@
-<div class="book col-lg-12">
+<div class="book col s12">
   <a href="{% url 'books:detail' book.slug %}" class="book_detail_link">
     <span class="name">{{ book.name }}</span>
     {% if book.rating %}
     <span class="rating">({{ book.rating }}/5)</span>
     {% endif %}
   </a>
-  <a href="{% url 'books:delete' book.slug %}" class="fa fa-trash-o book__cross"></a>
+  <a href="{% url 'books:delete' book.slug %}" class="book__cross"><i class="material-icons">delete_forever</i></a>
 </div>
