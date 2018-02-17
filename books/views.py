@@ -49,7 +49,7 @@ class BookCreateView(CreateView):
     model = Book
     template_name = 'books/add-book.html'
     success_url = '/books'
-    fields = '__all__'
+    fields = ('name', 'author', 'rating')
 
 
 @method_decorator(login_required, name='dispatch')
