@@ -1,13 +1,16 @@
 {% extends 'books/base.html'  %}
 {% load static %}
+{% load books_tags %}
 {% block content %}
 <div class="container">
   <h2 class="black-text">{{ book.name }}</h2>
+  {% if book.rating %}
   <div class="stars">
     {% for i in 'x'|rjust:book.rating %}
       <span class="star material-icons yellow-text">star</span>
     {% endfor %}
   </div>
+  {% endif %}
   <br />
   <br />
   <div class="row">
@@ -17,12 +20,18 @@
         <li class="tab col s3"><a href="#predefined_notes">Predefined Notes</a></li>
       </ul>
     </div>
+    <a href="#addNoteModal" class="btn-floating modal-trigger right z-depth-2"><i class="material-icons">add</i></a>
     <div id="custom_notes" class="col s12">
       <br />
-      <a href="#addNoteModal" class="btn-floating modal-trigger right z-depth-2"><i class="material-icons">add</i></a>
-      {% for note in notes %}
-        {% include 'books/_note.html' %}
-      {% endfor %}
+      <div class="row">
+        {% for subnotes in notes|rows_distributed:"4" %}
+          <div class="col l3">
+          {% for note in subnotes %}
+              {% include 'books/_note.html' %}
+          {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
       {% include 'books/_add_note_modal.html' %}
     </div>
     <div id="predefined_notes" class="col s12">
