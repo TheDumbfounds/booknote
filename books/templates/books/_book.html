@@ -1,9 +1,23 @@
-<div class="book col s12">
-  <a href="{% url 'books:detail' book.slug %}" class="book_detail_link">
-    <span class="name">{{ book.name }}</span>
-    {% if book.rating %}
-    <span class="rating">({{ book.rating }}/5)</span>
-    {% endif %}
-  </a>
-  <a href="{% url 'books:delete' book.slug %}" class="book__cross"><i class="material-icons">delete_forever</i></a>
+<div class="col l6 m12 s12">
+  <div class="grey lighten-3 card horizontal">
+    <!--<div class="card-image">
+      <img src="https://lorempixel.com/100/150/nature/6">
+    </div>-->
+    <div class="card-stacked">
+      <div class="card-content">
+        <span style="font-weight: bold;">{{ book.name|truncatechars:"50" }}</span>
+        {% if book.rating %}
+        <span class="stars">
+          {% for i in 'x'|rjust:book.rating %}
+            <span class="star material-icons orange-text star-small">star</span>
+          {% endfor %}
+        </span>
+        {% endif %}
+      </div>
+      <div class="card-action">
+        <a href="{% url 'books:detail' book.slug %}">View</a>
+        <a href="{% url 'books:delete' book.slug %}"><i class="material-icons right">delete_forever</i></a>
+      </div>
+    </div>
+  </div>
 </div>
