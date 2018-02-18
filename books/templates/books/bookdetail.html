@@ -40,5 +40,6 @@
 </div>
 {% endblock %}
 {% block script %}
+<script>var csrf_token = '{{ csrf_token }}'</script>
 <script src="{% static 'js/notes.js' %}"></script>
 {% endblock %}

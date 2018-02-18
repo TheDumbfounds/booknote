@@ -5,7 +5,7 @@
       <p>{{ note.body|linebreaks }}</p>
     </div>
     <div class="card-action">
-      <a href="#">Delete</a>
+      <button onclick="deleteNote('{{ note.book.slug }}', {{ note.id }})">Delete</button>
     </div>
   </div>
 </div>
