@@ -3,10 +3,10 @@
 {% load books_tags %}
 {% block content %}
 <div class="container">
-  <div class="details_wrapper center">
+  <div class="details_wrapper">
     <h2 id="booktitle" class="black-text">{{ book.name }}</h2>
     {% if book.rating %}
-    <div class="stars">
+    <div class="stars-inline">
       {% for i in 'x'|rjust:book.rating %}
         <span class="star material-icons orange-text">star</span>
       {% endfor %}
