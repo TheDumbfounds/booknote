@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse, QueryDict
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from .models import Book, Note
 from .forms import CustomNoteForm
+import json
 
 
 @method_decorator(login_required, name='dispatch')
@@ -35,6 +37,12 @@ class BookDetailView(DetailView):
             ).save()
 
         return redirect(reverse('books:detail', kwargs={'slug': kwargs['slug']}))
+
+    def delete(self, request, *args, **kwargs):
+        note_id = QueryDict(request.body).get('note_id')
+        note = get_object_or_404(Note, author=request.user, id=note_id)
+        note.delete()
+        return HttpResponse('')
 
     def get_context_data(self, **kwargs):
         context = super(BookDetailView, self).get_context_data(**kwargs)
