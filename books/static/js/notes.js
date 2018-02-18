@@ -1,5 +1,6 @@
 $('.modal').modal()
-function deleteNote(slug, id){
+function deleteNote(note, slug, id){
+  $(note).parentsUntil('.note').parent().remove()
   $.ajax({
     method: 'DELETE',
     url: slug,
@@ -12,6 +13,6 @@ function deleteNote(slug, id){
     success: function(){
       console.log("OKAY")
     },
-    error: function(err){console.log(err)}
+    error: function(err){}
   })
 }
