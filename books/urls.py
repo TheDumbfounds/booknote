@@ -4,10 +4,12 @@ from . import views
 
 app_name = 'books'
 urlpatterns = [
-    path('books/new', views.BookCreateView.as_view(), name='add'),
-    path('books/<slug:slug>/', include([
-        path('delete', views.BookDeleteView.as_view(), name='delete'),
-        path('', views.BookDetailView.as_view(), name='detail'),
+    path('books/', include([
+        path('', views.BookListView.as_view(), name='list'),
+        path('new', views.BookCreateView.as_view(), name='add'),
+        path('<slug:slug>', include([
+            path('delete', views.BookDeleteView.as_view(), name='delete'),
+            path('', views.BookDetailView.as_view(), name='detail'),
+        ])),
     ])),
-    path('books/', views.BookListView.as_view(), name='list'),
 ]
