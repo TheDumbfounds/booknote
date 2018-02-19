@@ -16,6 +16,7 @@ class Book(TimeStampedModel):
     slug = models.SlugField(blank=True, default='')
     author = models.CharField(max_length=100, blank=True)
     rating = models.PositiveIntegerField(validators=[MaxValueValidator(5)], blank=True, null=True)
+    added_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         ordering = ('-rating', '-created')
@@ -30,6 +31,6 @@ class Book(TimeStampedModel):
 
 class Note(TimeStampedModel):
     title = models.CharField(max_length=200)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    added_by = models.ForeignKey(User, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     body = models.TextField()
