@@ -1,0 +1,21 @@
+
+/* ListView page with all books */
+.star-small {
+  font-size: 100%;
+}
+
+/* DetailView page with single details about a book and notes */
+.details_wrapper {
+  margin: 60px 0px 60px 0px;
+}
+#booktitle {
+  font-family: 'Roboto';
+  display: inline;
+}
+.star {
+  font-size: 300%!important;
+  text-shadow: 0px 0px 3px lightgrey;
+}
+.modal-trigger {
+  margin-top: 15px;
+}
