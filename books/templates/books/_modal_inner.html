@@ -1,0 +1,13 @@
+<div class="card-panel grey lighten-3">
+  <form method="POST">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
+    <h6>Title</h6>
+    <input value="{{ form.title.value|default:'' }}" id="note-title" name="title" class="input-field" />
+    <h6>Body</h6>
+    <textarea id="note-body" name="body" class="materialize-textarea">{{ form.body.value|default:'' }}</textarea>
+    {% if note_id %}
+    <input type="hidden" name="note_id" value="{{ note_id }}" />
+    {% endif %}
+    <button type="submit" class="btn">{% if note_id %}Update{% else %}Add Note{% endif %}</button>
+  </form>
+</div>

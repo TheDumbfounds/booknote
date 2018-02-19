@@ -17,10 +17,10 @@
     <div class="col s12">
       <ul class="tabs">
         <li class="tab col s3"><a href="#custom_notes">Custom Notes</a></li>
-        <li class="tab col s3"><a href="#predefined_notes">Predefined Notes</a></li>
+        <!-- <li class="tab col s3"><a href="#predefined_notes">Predefined Notes</a></li> -->
       </ul>
     </div>
-    <a href="#addNoteModal" class="btn-floating modal-trigger right z-depth-2"><i class="material-icons">add</i></a>
+    <button href="#noteModal" onclick="triggerModal()" class="btn-floating modal-trigger right z-depth-2"><i class="material-icons">add</i></button>
     <div id="custom_notes" class="col s12">
       <br />
       <div class="row">
@@ -32,10 +32,12 @@
           </div>
         {% endfor %}
       </div>
-      {% include 'books/_add_note_modal.html' %}
+      <div id="noteModal" class="modal">
+
+      </div>
     </div>
-    <div id="predefined_notes" class="col s12">
-    </div>
+    <!-- <div id="predefined_notes" class="col s12">
+    </div> -->
   </div>
 </div>
 {% endblock %}
